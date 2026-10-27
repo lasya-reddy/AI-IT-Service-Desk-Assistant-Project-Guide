@@ -413,9 +413,6 @@ with st.sidebar:
     - **Predictive Intelligence:** Classical ML (TF-IDF + Logistic Regression) for automatic field population (*Category, Priority*).
     - **Now Assist (GenAI):** Generative AI reasoning for interactive troubleshooting, root-cause diagnosis, and KB drafting.
     """)
-    
-    st.markdown("---")
-    st.caption("Prepared for Lasya | UST Technical Interview Demo")
 
 # ----------------- TOP HEADER & METRICS -----------------
 col_title, col_status = st.columns([3, 1])
@@ -650,7 +647,7 @@ with tab_copilot:
     # Initialize chat history
     if "chat_messages" not in st.session_state:
         st.session_state["chat_messages"] = [
-            {"role": "assistant", "content": "👋 Hi Lasya! I'm your AI IT Service Desk Copilot. What technical issue or error are you experiencing today?"}
+            {"role": "assistant", "content": "👋 Hi I'm your AI IT Service Desk Copilot. What technical issue or error are you experiencing today?"}
         ]
         
     # Quick prompt chips
