@@ -1,0 +1,101 @@
+text,category
+VPN is not working since morning,Network
+VPN not connecting from home,Network
+Cannot establish VPN connection through Cisco AnyConnect,Network
+WiFi keeps dropping in office,Network
+Unable to connect to corporate office WiFi network,Network
+"Cannot reach internal portal, network timeout",Network
+Internet connection is extremely slow on the 3rd floor,Network
+DNS server resolution failed for internal intranet,Network
+LAN cable plugged in but showing no internet access,Network
+GlobalProtect VPN client gives gateway unreachable error,Network
+Remote desktop gateway unreachable due to network disconnect,Network
+Firewall blocking connection to staging database server,Network
+WiFi authentication rejected our corporate credentials,Network
+Cannot ping internal servers from home network,Network
+Network latency is too high during client video calls,Network
+VPN session disconnects every 10 minutes automatically,Network
+Office Ethernet switch port seems dead in room 204,Network
+Internal tools returning HTTP 504 gateway timeout,Network
+Unable to access intranet wiki page over VPN,Network
+Cisco VPN client shows login failed: authorization error,Network
+Subnet IP conflict causing frequent connection drops,Network
+Network speed drop when downloading work files,Network
+Cannot access company portal due to proxy error,Network
+Wireless network SSID is not visible on my work device,Network
+VPN tunnel drops during file transfer to network share,Network
+I forgot my password for email account,Access
+Need password reset for domain login,Access
+Account locked after failed login attempts,Access
+Forgot my password and security answers,Access
+Need access to shared drive for the marketing team,Access
+Request permission to access project SharePoint folder,Access
+Two-factor authentication MFA token not generating on phone,Access
+Okta verify push notification not received,Access
+Need admin access to install project dependencies,Access
+Git repository 403 forbidden permission denied,Access
+Account disabled due to 90-day inactivity,Access
+Need read and write access to customer data warehouse,Access
+Single Sign-On SSO redirect looping infinitely on login,Access
+"New joiner needs access to Slack, Jira, and Confluence",Access
+Requesting access to AWS production console for deployment,Access
+Smart card authentication not recognized by card reader,Access
+User permission request for Salesforce CRM portal,Access
+Access expired for SAP enterprise portal,Access
+Request temporary elevated sudo privileges on Linux server,Access
+"Cannot log into Windows profile, bad credentials",Access
+"MFA device lost, need temporary bypass code",Access
+Need access to shared mailbox in Outlook for finance team,Access
+Role change: please grant manager level approval rights,Access
+"Google Workspace account suspended, need reactivated",Access
+Request access to Jenkins CI/CD pipeline dashboard,Access
+My laptop screen is flickering,Hardware
+Laptop screen flickering and going black intermittently,Hardware
+Keyboard keys not working on ThinkPad laptop,Hardware
+Spacebar and enter keys physically stuck on keyboard,Hardware
+"Printer not printing, paper jam in tray 2",Hardware
+Printer is jammed and displaying error code E05,Hardware
+Laptop battery draining completely in under 30 minutes,Hardware
+Laptop overheating and fan running at maximum speed constantly,Hardware
+External monitor not detected via HDMI port,Hardware
+Dell USB-C docking station not charging laptop,Hardware
+Trackpad clicker is unresponsive and erratic,Hardware
+Headset microphone not picking up sound during meetings,Hardware
+"Computer won't power on, no power light or fan spinning",Hardware
+Webcam hardware not detected in device manager,Hardware
+Laptop charger cable frayed and sparking near adapter,Hardware
+"Office printer out of toner cartridge, black streaking",Hardware
+Desktop PC hard drive making loud clicking noise,Hardware
+Dual monitor display blurry on secondary screen via DisplayPort,Hardware
+Bluetooth wireless mouse not connecting or pairing,Hardware
+Barcode scanner hardware device not transmitting scan data,Hardware
+"Laptop dropped, physical damage on hinges and chassis",Hardware
+Speaker audio distorted and crackling on laptop,Hardware
+Docking station Ethernet port is physically loose,Hardware
+Desk phone handset has no dial tone,Hardware
+Broken USB port on right side of laptop,Hardware
+Outlook is not syncing,Software
+Outlook not syncing emails since yesterday,Software
+Excel crashes on opening file with macros,Software
+Microsoft Excel freezing when calculating formulas,Software
+Need Python installed on my laptop for data science project,Software
+Request software installation of Visual Studio Code and Node.js,Software
+Microsoft Teams crashing on joining video calls,Software
+Slack desktop app stuck on loading screen with white screen,Software
+Google Chrome browser keeps crashing tabs unexpectedly,Software
+Zoom desktop client audio echo and crashing during screen share,Software
+Adobe Acrobat Reader cannot open signed PDF document,Software
+Docker desktop engine failed to start on Windows,Software
+Anti-virus agent CrowdStrike showing definition update failure,Software
+Git bash crashing with fatal error when running checkout,Software
+Need license key renewed for JetBrains IntelliJ IDEA,Software
+Windows OS update stuck at 99 percent for 3 hours,Software
+Blue screen of death BSOD system crash after software update,Software
+OneDrive synchronization error conflict with cloud files,Software
+PowerBI desktop report refresh throwing OLE DB query error,Software
+Postman API client keeps crashing when sending request,Software
+Microsoft Word document corrupted and cannot be recovered,Software
+VPN client software needs upgrade to latest version,Software
+Database management tool DBeaver failing to connect to Postgres,Software
+Browser extension blocking corporate webpage scripts,Software
+Package manager pip failing SSL certificate verification,Software
