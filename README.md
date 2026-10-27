@@ -149,3 +149,5 @@ Open your browser and navigate to: **`http://localhost:8501`**
    For closed-domain classification with well-defined categories, TF-IDF + Logistic Regression delivers sub-millisecond latency, zero inference cost, and high determinism before scaling to LLMs or Sentence-Transformers.
 5. **How does this connect to ServiceNow?**  
    In ServiceNow, this model can be hosted as an internal REST microservice. A ServiceNow Scripted REST API or Outbound REST Message triggered by an Incident `before insert` Business Rule sends the `short_description` and automatically populates `category`, `urgency`, `impact`, and `work_notes`.
+#   A I - I T - S e r v i c e - D e s k - A s s i s t a n t - P r o j e c t - G u i d e  
+ 
