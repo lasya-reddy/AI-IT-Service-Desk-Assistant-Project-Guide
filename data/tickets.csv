@@ -1,101 +1,617 @@
 text,category,resolution
 VPN is not working since morning,Network,Restart Cisco AnyConnect client and verify MFA certificate credentials.
-VPN not connecting from home,Network,"Check home internet router, verify corporate VPN profile, and reconnect to primary gateway."
-Cannot establish VPN connection through Cisco AnyConnect,Network,Update Cisco AnyConnect to version 4.10 and re-import corporate root certificate.
-WiFi keeps dropping in office,Network,"Reset wireless network adapter, clear corporate SSID profile, and reconnect to 5GHz corporate band."
-Unable to connect to corporate office WiFi network,Network,Ensure device certificate is valid; re-authenticate with Active Directory credentials.
-"Cannot reach internal portal, network timeout",Network,Flush local DNS cache with ipconfig /flushdns and verify internal proxy server settings.
-Internet connection is extremely slow on the 3rd floor,Network,Escalated to Network Operations Center (NOC) to rebalance floor 3 wireless access points.
-DNS server resolution failed for internal intranet,Network,Set primary DNS to internal server IP 10.0.0.2 and clear browser cache.
-LAN cable plugged in but showing no internet access,Network,Verify Ethernet patch cable continuity and re-enable switch port on patch panel.
-GlobalProtect VPN client gives gateway unreachable error,Network,Switch to secondary backup VPN gateway URL in GlobalProtect settings.
-Remote desktop gateway unreachable due to network disconnect,Network,Verify remote workstation IP address and ensure host machine is powered on and joined to domain.
-Firewall blocking connection to staging database server,Network,Submit firewall rule request on port 5432 for developer subnet via ServiceNow catalog.
-WiFi authentication rejected our corporate credentials,Network,Verify user AD password has not expired; re-enter domain\username on login.
-Cannot ping internal servers from home network,Network,Ensure split tunneling is enabled on VPN client and check route table.
-Network latency is too high during client video calls,Network,Prioritize video traffic with QoS tags and disconnect non-essential background uploads.
-VPN session disconnects every 10 minutes automatically,Network,Adjust idle timeout threshold in VPN group policy configuration.
-Office Ethernet switch port seems dead in room 204,Network,Re-patched patch cable to active VLAN 20 port on floor switch stack.
-Internal tools returning HTTP 504 gateway timeout,Network,Restarted downstream internal API service container and verified load balancer health check.
-Unable to access intranet wiki page over VPN,Network,Add intranet domain suffix to Windows DNS search list under network adapter properties.
-Cisco VPN client shows login failed: authorization error,Network,Sync user AD group membership to Cisco ASA VPN security group.
-Subnet IP conflict causing frequent connection drops,Network,Released and renewed DHCP lease with ipconfig /renew to assign unique IP.
-Network speed drop when downloading work files,Network,Throttle background cloud backups during business hours.
-Cannot access company portal due to proxy error,Network,Reset Internet Options proxy auto-detect script to standard PAC URL.
-Wireless network SSID is not visible on my work device,Network,Updated wireless adapter driver from OEM support catalog.
-VPN tunnel drops during file transfer to network share,Network,Lowered MTU packet size on VPN virtual adapter from 1500 to 1350.
-I forgot my password for email account,Access,Initiated self-service password reset (SSPR) via registered corporate mobile number.
-I forgot my password,Access,Triggered automated SSPR link and verified user identity via backup email.
-Need password reset for domain login,Access,Issued temporary one-time password and enforced password change on next logon.
-Account locked after failed login attempts,Access,Unlocked Active Directory account and verified user Kerberos authentication status.
-Forgot my password and security answers,Access,Conducted live video identity verification and reset security questions in IAM portal.
-Need access to shared drive for the marketing team,Access,Added user security group to Windows File Share ACL with Read/Write permissions.
-Request permission to access project SharePoint folder,Access,Approved by folder owner; granted Contribute permissions in SharePoint admin center.
-Two-factor authentication MFA token not generating on phone,Access,Re-registered Microsoft Authenticator app using temporary hardware bypass code.
-Okta verify push notification not received,Access,Cleared Okta Verify application cache and sent manual SMS authentication code.
-Need admin access to install project dependencies,Access,Provisioned temporary 4-hour local administrator access via PAM Privileged Access Manager.
-Git repository 403 forbidden permission denied,Access,Generated new Personal Access Token (PAT) with repo scope and added SSH key to GitHub.
-Account disabled due to 90-day inactivity,Access,Obtained manager approval email and re-activated Active Directory account.
-Need read and write access to customer data warehouse,Access,Granted Snowflake/BigQuery database role via SailPoint identity request.
-Single Sign-On SSO redirect looping infinitely on login,Access,Cleared browser cookies for *.okta.com and re-synced SAML 2.0 federation token.
-"New joiner needs access to Slack, Jira, and Confluence",Access,Triggered automated onboarding workflow provisioning standard engineering toolset.
-Requesting access to AWS production console for deployment,Access,Approved through Change Advisory Board (CAB); granted temporary AWS IAM AssumeRole.
-Smart card authentication not recognized by card reader,Access,Re-installed smart card mini-driver and cleaned reader contact chips.
-User permission request for Salesforce CRM portal,Access,Assigned Standard Sales User license and profile in Salesforce User Management.
-Access expired for SAP enterprise portal,Access,Submitted role renewal ticket with manager sign-off in SAP GRC portal.
-Request temporary elevated sudo privileges on Linux server,Access,Added user to sudoers file with 8-hour expiration rule on target server.
-"Cannot log into Windows profile, bad credentials",Access,Re-synced user password between Azure AD and on-premises domain controller.
-"MFA device lost, need temporary bypass code",Access,Issued 24-hour temporary access pass (TAP) following manager identity sign-off.
-Need access to shared mailbox in Outlook for finance team,Access,Assigned 'Read and Manage' plus 'Send As' delegate permissions in Exchange Admin Center.
-Role change: please grant manager level approval rights,Access,Updated Workday reporting line and re-provisioned approval matrix.
-"Google Workspace account suspended, need reactivated",Access,Lifted automated suspension flag in Google Workspace Admin Console.
-My laptop screen is flickering,Hardware,Adjusted display refresh rate to 60Hz and updated OEM graphics driver.
-Laptop screen flickering and going black intermittently,Hardware,Inspected internal eDP display ribbon cable; reseated connector on motherboard.
-Keyboard keys not working on ThinkPad laptop,Hardware,"Ran Lenovo hardware diagnostics, cleaned keyboard membrane, and replaced keyboard module under warranty."
-Spacebar and enter keys physically stuck on keyboard,Hardware,"Removed keycaps, cleaned debris with compressed air, and reseated stabilizer clips."
-"Printer not printing, paper jam in tray 2",Hardware,Cleared paper jam from duplex unit tray 2 and cleaned pickup rollers with isopropyl alcohol.
-Printer is jammed and displaying error code E05,Hardware,Removed paper fragment lodged in fuser assembly and power cycled printer.
+VPN not connecting from home,Network,"Check home router, clear DNS cache, and reconnect to corporate VPN gateway."
+WiFi keeps dropping in office,Network,Reset corporate 802.1x wireless adapter certificate and renew DHCP lease.
+"Cannot reach internal portal, network timeout",Network,Flush DNS cache with 'ipconfig /flushdns' and check corporate proxy PAC URL.
+I forgot my password,Access,Initiate automated Self-Service Password Reset (SSPR) link via registered mobile.
+I forgot my password for email account,Access,Issued temporary one-time password and enforced change on next logon.
+Account locked after failed login,Access,Unlocked Active Directory account and verified user Kerberos token status.
+Need access to shared drive,Access,Granted read/write permissions to shared network folder in AD security group.
+My laptop screen is flickering,Hardware,Updated Intel graphics driver and adjusted display refresh rate to 60Hz.
+Keyboard keys not working,Hardware,Cleaned keyboard membrane with compressed air and reinstalled filter driver.
 Printer is jammed,Hardware,"Opened rear maintenance door, cleared stuck paper sheet, and reset roller mechanism."
-Laptop battery draining completely in under 30 minutes,Hardware,"Generated battery health report (powercfg /batteryreport); battery degraded, dispatched replacement battery."
-Laptop overheating and fan running at maximum speed constantly,Hardware,Cleared dust from exhaust vents using compressed air and updated BIOS fan profile.
-External monitor not detected via HDMI port,Hardware,Tested with known good HDMI cable; updated Intel display adapter firmware.
-Dell USB-C docking station not charging laptop,Hardware,Applied Dell Docking Station WD19 firmware update and power cycled dock power supply.
-Trackpad clicker is unresponsive and erratic,Hardware,Disengaged swollen battery pushing against trackpad; replaced battery unit.
-Headset microphone not picking up sound during meetings,Hardware,Adjusted Windows privacy microphone permissions and updated Realtek audio driver.
-"Computer won't power on, no power light or fan spinning",Hardware,Performed hard power reset (held power button 30s) and verified 65W AC power adapter voltage.
-Webcam hardware not detected in device manager,Hardware,Toggled hardware privacy shutter switch and re-enabled camera in BIOS settings.
-Laptop charger cable frayed and sparking near adapter,Hardware,Decommissioned damaged power brick immediately; issued new OEM 65W USB-C charger.
-"Office printer out of toner cartridge, black streaking",Hardware,Replaced black high-yield toner cartridge and wiped optical drum unit.
-Desktop PC hard drive making loud clicking noise,Hardware,Initiated immediate drive image backup; replaced failing HDD with 512GB NVMe SSD.
-Dual monitor display blurry on secondary screen via DisplayPort,Hardware,Swapped DisplayPort cable and set native resolution 1920x1080 @ 60Hz in display settings.
-Bluetooth wireless mouse not connecting or pairing,Hardware,Replaced AAA batteries and reset Bluetooth radio pairing in Windows settings.
-Barcode scanner hardware device not transmitting scan data,Hardware,Scanned factory reset barcode and configured USB HID keyboard emulation mode.
-"Laptop dropped, physical damage on hinges and chassis",Hardware,Transferred user NVMe drive to spare loaner laptop while damaged chassis was sent for depot repair.
-Speaker audio distorted and crackling on laptop,Hardware,Reinstalled audio drivers from manufacturer website and tested audio frequency sweep.
-Docking station Ethernet port is physically loose,Hardware,Replaced worn docking station unit with new Dell Thunderbolt 4 dock.
-Broken USB port on right side of laptop,Hardware,Disabled damaged USB port in device manager to prevent electrical short.
-Outlook is not syncing,Software,Removed cached Exchange mode OST file and allowed Outlook to re-download mailbox from server.
-Outlook not syncing emails since yesterday,Software,Repaired Office installation via Quick Repair and re-authenticated Modern Auth prompt.
-Excel crashes on opening file with macros,Software,"Opened Excel in Safe Mode (excel /safe), disabled incompatible third-party COM add-ins."
-Microsoft Excel freezing when calculating formulas,Software,Switched calculation mode to manual and cleared circular formula references in workbook.
-Need Python installed on my laptop for data science project,Software,Installed Python 3.11 via approved corporate Software Center catalog with standard data science packages.
-Request software installation of Visual Studio Code and Node.js,Software,Approved and deployed VS Code and Node.js LTS via Microsoft Endpoint Manager / Intune.
-Microsoft Teams crashing on joining video calls,Software,Cleared Teams cache folder (%appdata%\Microsoft\Teams) and disabled GPU hardware acceleration.
-Slack desktop app stuck on loading screen with white screen,Software,Reset Slack app data from Help menu and re-logged into corporate workspace.
-Google Chrome browser keeps crashing tabs unexpectedly,Software,Disabled suspicious third-party extension and cleared browser shader cache.
-Zoom desktop client audio echo and crashing during screen share,Software,Updated Zoom to latest build and enabled echo cancellation in advanced audio settings.
-Adobe Acrobat Reader cannot open signed PDF document,Software,Installed Adobe Acrobat DC patch and verified trusted digital root certificates.
-Docker desktop engine failed to start on Windows,Software,Re-registered WSL2 Linux kernel subsystem (wsl --update) and enabled Hyper-V in Windows features.
-Anti-virus agent CrowdStrike showing definition update failure,Software,Triggered manual sensor check-in with CrowdStrike cloud console.
-Git bash crashing with fatal error when running checkout,Software,Reinstalled Git for Windows 2.44 with default terminal settings.
-Need license key renewed for JetBrains IntelliJ IDEA,Software,Assigned corporate JetBrains license via Toolbox organizational account.
-Windows OS update stuck at 99 percent for 3 hours,Software,"Stopped Windows Update service, cleared SoftwareDistribution download folder, and restarted service."
-Blue screen of death BSOD system crash after software update,Software,Booted into Safe Mode and rolled back conflicting third-party driver update.
-OneDrive synchronization error conflict with cloud files,Software,Reset OneDrive client using %localappdata%\Microsoft\OneDrive\onedrive.exe /reset.
-PowerBI desktop report refresh throwing OLE DB query error,Software,Updated SQL database gateway credentials and refreshed query schema.
-Postman API client keeps crashing when sending request,Software,Disabled SSL certificate verification in Postman settings for internal development APIs.
-Microsoft Word document corrupted and cannot be recovered,Software,Extracted raw text using Word 'Open and Repair' recovery feature from backup shadow copy.
-VPN client software needs upgrade to latest version,Software,Pushed Cisco AnyConnect package upgrade remotely via SCCM.
-Database management tool DBeaver failing to connect to Postgres,Software,Downloaded appropriate PostgreSQL JDBC driver 42.6 in DBeaver driver manager.
-Browser extension blocking corporate webpage scripts,Software,Added corporate domain *.corp.internal to extension whitelist exception list.
-Package manager pip failing SSL certificate verification,Software,Configured corporate proxy CA root certificate bundle in pip.ini configuration.
+"Printer not printing, paper jam",Hardware,Cleared paper jam in Tray 2 feed assembly and restarted print spooler.
+Outlook is not syncing,Software,Removed cached Exchange .OST file and allowed Outlook to resynchronize mailbox.
+Outlook not syncing emails,Software,Repaired Office installation via Quick Repair and re-authenticated Exchange profile.
+Excel crashes on opening file,Software,Started Excel in Safe Mode (excel /safe) and disabled corrupted COM add-ins.
+Need Python installed on my laptop,Software,Deployed Python 3.11 approved package via corporate Software Center.
+"when connected to telekom (mobile broadband), the vpn does not work.",Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+log on balancing error ; even after connecting to vpn,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+probleme mit lan fÃ¼r rechner erodiermaschine dtlmbcrx mwuateyx,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+vip2: unable to get on the network,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+vpn not getting log in,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+ich kann meinen vpn nicht Ã¶ffnen,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+"network outage, russia ru, company-russia-vpn-rtr(10.46.0.21) showing down since 12:59 am edt on 08/09/16 (no backup ckt.)",Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+host HostName_1178 is disconnected in vsphere,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+german call // caller disconnected,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+user wish to set lan as first priority for internet,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+vpn not working.,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+wifi on big meetings is not stable in the meeting room,Network,"Reset corporate wireless 802.1x adapter, forgot network profile, and re-authenticated certificate."
+wifi companysecure not working at sao bernardo do campo,Network,"Reset corporate wireless 802.1x adapter, forgot network profile, and re-authenticated certificate."
+ess portal,Network,Flushed DNS cache using 'ipconfig /flushdns' and updated proxy PAC configuration script.
+only erp running slow in Israel.internet is working fine.,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+kabel lan 10m liefern gogtyekhan merdivan,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+network outage : pol-poland site hard down since 9/7/2016 3:36 am et. no backup circuit.,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+ethernet not working. only wi-fi.,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+remote vpn issue,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+"working from home, connection to vpn gets disconnected",Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+vpn connectivity issues,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+engineering_tools not connected to network even though vpn is connected.,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+now acces to the internet - webside allways offline,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+connection to 'admin2-datacenter-switch04' ;switch05 & admin2-datacenter-switch06 is down at latrosince 1:40am et 08/17.,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+cant log in to vpn,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+chat disconnected,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+probleme mit portal franjuz urbghty,Network,Flushed DNS cache using 'ipconfig /flushdns' and updated proxy PAC configuration script.
+"received call , hold music was playing on other side and disconnected.",Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+circuit outage: mpls ciruit is down at matlxjgi elrndiuy since 12:19am et on 08/11. site is up on vpn.,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+wifi not working in conference room of usa oh ...,Network,"Reset corporate wireless 802.1x adapter, forgot network profile, and re-authenticated certificate."
+network outage: sao pollaurido-mercedes benz plant network is down since 6:45am et on 08/06/16. no backup circuit,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+connection to finance_app data base,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+vpn connection failure,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+unable to connect to internet,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+usa:dnb-vpn-rtr(10.38.1.11) is down since 8:39 pm on 08/20 et,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+could not logon to erp via vpn,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+probleme mit vpn weszfyok fbadnjhu,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+vpn è¿žæŽ¥ä¸ä¸Š,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+erp production order printing issue : connection to system production_order_interface_app with destination production_order_interface_vendor-connc is not okay.,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+create guest wifi - vvrassyhrt,Network,"Reset corporate wireless 802.1x adapter, forgot network profile, and re-authenticated certificate."
+no connection to t drive in na,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+blank call // call came and got disconnected,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+wifi not working in pennsylvania (wireless issue at waynesboro),Network,"Reset corporate wireless 802.1x adapter, forgot network profile, and re-authenticated certificate."
+probleme mit portal knlrgsiv cqvuexjz,Network,Flushed DNS cache using 'ipconfig /flushdns' and updated proxy PAC configuration script.
+wifi ä¸èƒ½åœ¨çº¿,Network,"Reset corporate wireless 802.1x adapter, forgot network profile, and re-authenticated certificate."
+unable to connect with vpn,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+url portal not functioning,Network,Flushed DNS cache using 'ipconfig /flushdns' and updated proxy PAC configuration script.
+pasword and connection problem,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+entire location at germany network is down.(germany),Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+internet explorer issue,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+circuit outage:usa plant - (company) secondary vpn is down since 11:08 pm on 10/20 et.site up on primary global_telecom_1,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+"the HostName_80 network connection lost at 9:05 am in apac time , the connection lost has been going on 10 minutes",Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+internet not working in usa location.,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+wifi connection is intermittent (getting frequently disconnected) in india.,Network,"Reset corporate wireless 802.1x adapter, forgot network profile, and re-authenticated certificate."
+network outage: usa site is hard down since 05:04 pm et on 08/07.,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+ms outlook network error messages,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+clientless vpn is not working,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+logon balancing error in erp even after connecting to vpn,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+could not use bobjee application: search and explorer analytics / erp netweaver portal,Network,Flushed DNS cache using 'ipconfig /flushdns' and updated proxy PAC configuration script.
+vpn disconnecting,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+getting knocked off vpn,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+internet explorer update to version11,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+network outage: india site is down at 9:00 am et on 09/01. no backup circuit.,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+lan connection in training room 3 not workig - also need mini-dp to vga adapter,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+telephone repair pu-4 (shop floor 173 connection),Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+"i canÂ´t connect my note book to the "" vpn """,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+wifi not working,Network,"Reset corporate wireless 802.1x adapter, forgot network profile, and re-authenticated certificate."
+"network outage: Israel, israel - (company) network is down since 6:24pm et on 09/13/16",Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+can not log into vpn,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+need network connection for alicona edgemaster at pu5,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+wifi is not working,Network,"Reset corporate wireless 802.1x adapter, forgot network profile, and re-authenticated certificate."
+network issues,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+duplication of network address.,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+netpath running from : HostName_1089 is having an issue reaching : portal.microsoftonline.com,Network,Flushed DNS cache using 'ipconfig /flushdns' and updated proxy PAC configuration script.
+i can not log into erp hcm via the vpn,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+action required: please connect to the new vpn url before january 30,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+probleme mit portal ujtmipzv cwdzunxs,Network,Flushed DNS cache using 'ipconfig /flushdns' and updated proxy PAC configuration script.
+vpn connection problem,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+"network outage :canada, ontario - (company):site is hard down since at 10:01 am et on 09/21.",Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+"unable to connect to network in usa, michigan",Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+unable to connect to vpn,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+i cannot get onto the network on my pc.,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+"milano,italy: duplex mismatch gi2/0/1 on 1811 router and gi0/0/1 on 4331 router. see discription for more info.",Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+"network outage : , spain kenci site is hard down at 8:40 pm et on 08/16. no backup circuit.",Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+probleme mit portal ghaltiek lsuepvyx,Network,Flushed DNS cache using 'ipconfig /flushdns' and updated proxy PAC configuration script.
+"network outage: vogelfontein, south africa ,sa network is down since 2:28am et on 10/15/16",Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+connection issue,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+vpn router : company-eu-deu-germany-dmvpn-1811-rtr02 down,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+application response time (other network resources work normally),Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+not able to connect to vpn,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+network outage: malaysia site hard down since 12:41 am et on 09/11.,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+18.79.63.203/company-internal-asa.company.com-1 device generating a high volume of 'repeat outbound connection for 135/tcp' aler,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+"circuit outage: south_amerirtca, south_amerirtca vpn router is down at 12:23 pm et on 10/04. site is up on primary.",Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+multiple issues with the company guest wifi sponsor portal,Network,"Reset corporate wireless 802.1x adapter, forgot network profile, and re-authenticated certificate."
+"network outage:india , in-company- carrier:site is hard down since at 6:12 am et on 09/21.",Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+mapping network drive,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+network response time,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+network outage : engineering_toolkuznetsk warehouse russia site hard down since 1:52 am et on 09/07.,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+network outage: usa mi site is hard down at 9:29 am et on 09/01. there is no backup circuit.,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+"hallo zusammen, es werden bei mir keine wifi verbindungen mehr angezeigt. zuhause kann ich mich nicht mehr einwÃ¤hlen. b",Network,"Reset corporate wireless 802.1x adapter, forgot network profile, and re-authenticated certificate."
+unable to connect to network drives on vpn,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+unable to connect to outlook from home network,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+probleme lan an tgeyd1 we_wu113 wrcktgbd wzrgyunp,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+probleme mit lan am rechner we_wu113 essa wrcktgbd wzrgyunp,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+unable to sign in to vpn,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+user needs help to connect to the wireless connection at home.,Network,"Reset corporate wireless 802.1x adapter, forgot network profile, and re-authenticated certificate."
+cannot connect to network resources in hq,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+erp system is very slow in apac dc. i asked stefytyn shi to uacyltoe hxgaycze the network. he uacyltoe hxgaycze the netw,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+"network outage: vogelfontein,south africa,sa primary circuit company_zaf_vogelfontein_mpls_ce01 is down since 10:5am et on 08/16",Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+i can not connect to vpn.,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+network port not working,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+"network outage : israel, israel ( sales facility) is down on 09/13 at 8:23 am et.",Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+network outage : melbourne (rowville) site is hard down at 01:34 am et on 08/11.,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+need file restored on a network/nt drive HostName_771,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+wifi not working.,Network,"Reset corporate wireless 802.1x adapter, forgot network profile, and re-authenticated certificate."
+media server disconnect lpapr952(south_amerirtca south_amerirtca),Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+"circuit outage: usa company, mpls router is down since 8:16 am et on 10/11. site is up on vpn circuit.",Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+network outage:barcelona - tesscenter 1:site is hard down since at 5:44 am et on 08/31.no backup on site.,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+circuit outage: usa - (company) secondary circuit company-usa-vpn-rtr is down since 9:15 am et on 08/16/16,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+"when using phone, connection is intermittent. cannot use desk phone for calls and skype meetings.",Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+erp printing issue : connection to system production_order_interface_app with destination production_order_interface_vendor-connc is not okay.,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+knocked off vpn,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+unable to connect to lan internet,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+"vpn(apvpn ,vpn) unable to connection .",Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+does the vpn meter the amount of data that can be transferred?,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+network problems (multiple applications are running slow),Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+security incidents - ( #in33505432 ) : repeat outbound connection for 135/tcp from 10.16.140.231,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+no connection to the production_order_interface_app-fu (production_order_interface_vendor connc fu),Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+erp log on balancing error : vpn issue,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+quantum oracle database connection is not working,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+"circuit outage: usa , vpn circuit is down at 2:42 pm et on 08/25. circuit is up on primary.",Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+probleme mit portal acqpinyd ecygimqd,Network,Flushed DNS cache using 'ipconfig /flushdns' and updated proxy PAC configuration script.
+single sign on portal apps,Network,Flushed DNS cache using 'ipconfig /flushdns' and updated proxy PAC configuration script.
+unable to get on network drives,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+7350 wifi not connecting,Network,"Reset corporate wireless 802.1x adapter, forgot network profile, and re-authenticated certificate."
+computer unable to connection company network.,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+interface down ::usa switch :: bottom-6509-msfc720 switch since 8/17/2016 11:46 pm est,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+network outage at usa since 8:40pm et 09/04.,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+i am having problems logging into the na vpn.,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+the snmp agent at '10.32.1.11' is not responding. infoblox - usa datacenter primary dns,Network,Configured secondary internal DNS server IP and cleared local resolver cache.
+call came and got disconnected,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+probleme mit vpn wxstfouy isjzcotm,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+mapping network,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+unable to connect to wifi,Network,"Reset corporate wireless 802.1x adapter, forgot network profile, and re-authenticated certificate."
+call from private number // got disconnected,Network,"Verified network switch port continuity, renewed DHCP lease, and resolved gateway packet loss."
+circuit outage:Â·2 mbps internet link to telecom_vendor_1 circuit id on company-ap-ind-india-dmvpn-1811-rtr.company.com is down since 5:15 pm,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+network outage: company-na-usa-usa-township-dmvpn-1921-rtr01 since 2:59 am et on 10/18.,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+"circuit outage: vpn router (rtr01) is down at 9:15 am et on 10/05, site is up on rtro2",Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+network outage: usa vpn router is down since 08:02 pm et on 09/25. no backup,Network,"Restarted Cisco AnyConnect service, cleared cached profile credentials, and reconnected to primary VPN gateway."
+hr_tool portal is not working.,Network,Flushed DNS cache using 'ipconfig /flushdns' and updated proxy PAC configuration script.
+the user's account is blocked now (xtsuifdz.wktgzcyl@gmail.com),Access,Unlocked Active Directory domain account and verified user Kerberos token status.
+erp SID_34 and SID_21 unlock and password reset.,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+pls. check user:yubtgy1 account,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+prtgghj4k access locked,Access,Unlocked Active Directory domain account and verified user Kerberos token status.
+ng_ff90 account unlock in erp SID_34,Access,Unlocked Active Directory domain account and verified user Kerberos token status.
+erp purchasing access issue user kgueyiwp cjlonvme (helmu),Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+re: finished: start of s&op process - my account is blocked - password issue,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+erp SID_34 account unlock,Access,Unlocked Active Directory domain account and verified user Kerberos token status.
+reset the password for pumjbcna scluvtyj on erp / qa / hcm,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+erp SID_34 password reset (requested by ughzilfm cfibdamq),Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+reset passwords for gjisfonb odwfhmze using password_management_tool password reset.,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+unable to access to bobj reports,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+erp locked,Access,Unlocked Active Directory domain account and verified user Kerberos token status.
+account names not seems on crm,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+connections problems with microsoft collaboration_platform and my company account,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+need access to erp kp06789,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+please give me administration permission for my user id:reddakv,Access,Granted required ACL read/write permissions approved by data owner in Active Directory.
+i need my password in SID_1 changed.. thanks,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+erp account password reset,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+vip 2 // SID_60 hana login,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+account unlock,Access,Unlocked Active Directory domain account and verified user Kerberos token status.
+need access to znqcljxt azvoespk's emails,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+need verification of proper user id,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+request to reset microsoft online services password,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+ethics login not recognized,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+"vogelfontein, south africa , sa:company-eu-zaf-vogelfontein-2960-access-sw08.company.com is down since 8:04 pm et on 10/14.",Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+erp password locked,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+account locked out ; password expired,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+passwort ist abgelaufen. bitte reset einleiten. auch fÃ¼r das iphone.,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+password chaning for window (company),Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+company engineering_tool access,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+frequent account locked out,Access,Unlocked Active Directory domain account and verified user Kerberos token status.
+i need access to netweaver drawings. i also need erp access for nxd type drawings. i am being denied access in erp,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+account disabled for user vvfrtgarnb,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+password reset alert from o365,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+erp login,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+question on how to login to impact awards,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+unable to submit expense report as it is locked by user,Access,Unlocked Active Directory domain account and verified user Kerberos token status.
+wi- fi access to user jamhdtyes kinhytudel,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+account auf iphone lÃ¶schen und neu anlegen.,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+ughzilfm cfibdamq called in to reset password for zlnfpuam aktplhre,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+attendance_tool id and password.,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+account locked out.,Access,Unlocked Active Directory domain account and verified user Kerberos token status.
+wireless access companyguest request,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+reset passwords for yolktfas fyoxqgvh using password_management_tool password reset.,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+unable to scan after resetting password on password_management_tool,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+password_management_tool password manager change?,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+vip 1 :login issue,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+unable to login into attendance_tool,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+"erp been locked, please help to un-lock, and tell me the new password.",Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+ticket_no1559458 : wireless guest access- hr_tool trainer,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+erp & business_client password reset request,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+unlock my erp account,Access,Unlocked Active Directory domain account and verified user Kerberos token status.
+password reset - ad,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+reset passwords for cpmaidhj elbaqmtp using password_management_tool password reset.,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+reset the password for aliuytre j love-lewis on other / caas applications,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+password reset for upitdmhz owupktcg cruzjc,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+urgent - new customer account,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+urgent : user : vvspecmfrt : please reactivate account.,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+login not possible for trail employee thsaqsh 767202934,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+password reset request,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+please reset my erp and bex password - seem to by not synchronized - thanks!,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+erp SID_34 locked.,Access,Unlocked Active Directory domain account and verified user Kerberos token status.
+reset passwords for pxvjczdt kizsjfpq using password_management_tool password reset.,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+erp accout had been locked,Access,Unlocked Active Directory domain account and verified user Kerberos token status.
+unlock erp SID_34,Access,Unlocked Active Directory domain account and verified user Kerberos token status.
+company orshop_floor_app locked out for too many tries of wrong password,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+unable to access the lunch menu on the hub,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+erp login information misplaced,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+account is expired,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+account is getting locked daily,Access,Unlocked Active Directory domain account and verified user Kerberos token status.
+vip 2 // unable to sign in to one note as password is not synching,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+summary:attendance_tool password forgot.,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+unable to login to ess,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+password reset via password_manager_tool password manager,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+production order locked.,Access,Unlocked Active Directory domain account and verified user Kerberos token status.
+no access to ethics training,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+unable to login to microsoft account and need password,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+unable to login to mii system : yrhackgt sfhxckgq,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+reset passwords for ugawcoye jcfqgviy using password_management_tool password reset.,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+i am not able to service customers - distributor_tool / companycenter login not working,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+supply_chain_software password reset,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+account information updated,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+password reset request through password_management_tool password.,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+reset the password for fygrwuna gomcekzi on e-mail,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+erp login issue,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+no access to impact award hub,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+erp login account is locked,Access,Unlocked Active Directory domain account and verified user Kerberos token status.
+pls also extend mm#7389861 & 7421988 to my purchasing user account. need to create prs for both mm#.,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+password change request.,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+email access to mobile device.,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+access for igurwxhv ughynofq to mailbox,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+erp SID_34 account unlock and password reset for bowtniuy.afgdmesz@gmail.com,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+company center does not show org 1101 after i changed my password,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+telephony_software password has expired,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+erp SID_34 and erp SID_1 password reset,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+unable to login to citrix,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+"Israel, israel - (company):company-eu-isr--mainswitch-b-3560-access-sw02 is down since at 07:38 am et on 21-08-2016.",Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+hotwlygp afukzhnm - frequent account lockout,Access,Unlocked Active Directory domain account and verified user Kerberos token status.
+mii password reset,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+reset passwords for soldfnbq uhnbsvqd using password_management_tool password reset.,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+userid cccplant_119 cannot reset password. please look at the screenshot.,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+procenter login credential for new joiners,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+server access rights for hpmjtgik blrmfvyh,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+"my phone #, erp, ""name or password is incorrect (repeat logon)"", cannot log into erp systems.",Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+vvfrtgarnb - account disabled : account needs to be enabled till 12th aug,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+unlock ad account,Access,Unlocked Active Directory domain account and verified user Kerberos token status.
+unable to access travel site,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+need help in changing password in password_management_tool password manager.,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+unable access - net weaver,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+missing email access: k-amerirtcas.hrss@company.com,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+folder access required,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+login is not possible ??,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+i forgot my erp password,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+unlock account the user aeftjxos lhnyofad - id: vvsardkajdjtf,Access,Unlocked Active Directory domain account and verified user Kerberos token status.
+account unlock.,Access,Unlocked Active Directory domain account and verified user Kerberos token status.
+account locked out : ad,Access,Unlocked Active Directory domain account and verified user Kerberos token status.
+reset the password for ahydmrbu fjymgtvo on other / telephony_software,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+can you please give me access to the SID_1 uacyltoe hxgaycze system. user pildladjadga,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+my sysetem remote access,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+request to reset microsoft online services password for rovsabyl.idpvbjtw@gmail.com,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+reset passwords for hzmxwdrs tcbjyqps using password_management_tool password reset.,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+access to retired employee's collaboration_platform,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+xp pc in lab hooked to microscope gets a bsod on login.,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+fw: you must validate your account,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+unable to login to pc after changing the password,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+company guest account not working which was created yesterday.,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+new password for erp SID_37 (bex) needed,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+"please reset my password for hana SID_60,SID_59,SID_58",Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+unable to login past see,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+please change password and pin for the EU_tool,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+reset password in SID_50 - user zigioachstyac,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+locked out on the crm account,Access,Unlocked Active Directory domain account and verified user Kerberos token status.
+frequent account lock out : wothyehre,Access,Unlocked Active Directory domain account and verified user Kerberos token status.
+not able to login to sso : one team : it never worked,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+extend the account - vvnewthey - urgent,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+user needs help to login to the mii.,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+problem with erp login the server list is not available.,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+unable to login to distributor_tool,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+computer loading temp profile whenever user is logging in with his id and password,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+need help in changing password in password_management_tool password manager,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+login script pop up query,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+reset passwords for eglavnhx uprodleq using password_management_tool password reset.,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+unable to access emails,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+not able to login to beyond evolution campaign reporting_engineering_tool,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+your account,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+password reset alert from o365 for user lafgturie sherwtgyu,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+erp SID_34 account,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+account lock out and password reset instructions,Access,Initiated automated Self-Service Password Reset (SSPR) and verified user identity via backup MFA.
+crm account and contact reassignment help.,Access,Updated IAM security group membership and synced role entitlements via SailPoint.
+"lhqsm673 ( kashfyujqti jdcbiezx1 ) disk free on c: is now 14%, which is below the warning threshold (15%)",Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+HostName_804: c: disk volume is over 85% space consumed.,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+":i have a new laptop, and tried to log into",Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+cannot download or print drawings from erp netweaver.,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+dw06 print job error,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+monitor vom rfa-analysegerÃ¤t defekt,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+laptop service tag- fh1r262 not working(keypad issue),Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+monitor in der stÃ¤be-endkontrolle defekt,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+vip 2: printer hr14 not printing pdf document.,Hardware,Cleared paper path obstruction in Tray 2 feed assembly and power cycled printer spooler.
+changed desktop wallpaper,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+i can not print. it is asking me to install a print driver,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+konto scghhnell reaktivieren- laptop ewel7212519,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+dock station - required,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+"HostName_184- average (1 samples) disk free on /nfsbackup is now 2%, which is below the error threshold (5%)",Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+need display link adaptor and simcard holder,Hardware,"Updated OEM graphics driver, set display refresh rate to 60Hz, and verified eDP cable seating."
+"HostName_1003:( kisp - iis - app server production )disk free on e: is now 15%, which is below the warning threshold (15%)",Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+need to install ts02345 printer,Hardware,Cleared paper path obstruction in Tray 2 feed assembly and power cycled printer spooler.
+printer ag99 - printing ink empty,Hardware,Cleared paper path obstruction in Tray 2 feed assembly and power cycled printer spooler.
+after upgrade telephony_software has dierppeared from the screen,Hardware,"Updated OEM graphics driver, set display refresh rate to 60Hz, and verified eDP cable seating."
+"laptop will not start up while docked, blue power light on the lights up briefly then goes off.",Hardware,Tested AC adapter output voltage and dispatched replacement OEM battery under warranty.
+HostName_1132:oracle finance_app financial management - web tier/ java server (epmsystem2) - service monitor,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+hello when i try to get on to erp search and explorer analytics a blank screen comes up (below) are we having problems,Hardware,"Updated OEM graphics driver, set display refresh rate to 60Hz, and verified eDP cable seating."
+boot up issue with the laptop.,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+vmax alert:a symmetrix power subsystem ac line interruption was detected.emc sr # 81364438,Hardware,Tested AC adapter output voltage and dispatched replacement OEM battery under warranty.
+"when undocking pc , screen will not come back",Hardware,"Updated OEM graphics driver, set display refresh rate to 60Hz, and verified eDP cable seating."
+delivery notes from other users coming to the printer,Hardware,Cleared paper path obstruction in Tray 2 feed assembly and power cycled printer spooler.
+printer problem / issue information,Hardware,Cleared paper path obstruction in Tray 2 feed assembly and power cycled printer spooler.
+power outage: india plant - india () telecom_vendor_3 40mbps secondary circuit is down since 3:26 am et on 10/11/16.,Hardware,Tested AC adapter output voltage and dispatched replacement OEM battery under warranty.
+laptop is having blue screen,Hardware,"Updated OEM graphics driver, set display refresh rate to 60Hz, and verified eDP cable seating."
+vip 2 printer drivers not installing,Hardware,Cleared paper path obstruction in Tray 2 feed assembly and power cycled printer spooler.
+"2md extenral monitor will not stay one, it flashes briefly then goes out.",Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+id04 printer not working at company,Hardware,Cleared paper path obstruction in Tray 2 feed assembly and power cycled printer spooler.
+HostName_216 (erp-SID_51 aprtgghj4k- production): average (1 samples) disk free on /home is now 13%,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+po print out.,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+i would like to be able to use the camera on my skype for business calls. can you add this to my options?,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+can not print to tc 28 or tc19 on HostName_769,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+HostName_19 : volume c: disk consumed is 85% .,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+"md04, display stock, is locking up with create delivery, 30min to 1hr, had to close out window, still didnt process",Hardware,"Updated OEM graphics driver, set display refresh rate to 60Hz, and verified eDP cable seating."
+outlook is not updating on my laptop,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+erp reroute production order printer mp74 to mp82,Hardware,Cleared paper path obstruction in Tray 2 feed assembly and power cycled printer spooler.
+unable to connect to home printer,Hardware,Cleared paper path obstruction in Tray 2 feed assembly and power cycled printer spooler.
+telephony_software phone system (interaction desktop) authentication process failure,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+no display on the external monitor connected through docking station,Hardware,"Updated OEM graphics driver, set display refresh rate to 60Hz, and verified eDP cable seating."
+"HostName_1015: average (4 samples) disk free on c: is now 15%, which is below the warning threshold (15%)",Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+cannot print to cl92,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+i cannot print out erp documents on zz_mails functions since today around noon. please help.,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+machine stuck on welcome screen,Hardware,"Updated OEM graphics driver, set display refresh rate to 60Hz, and verified eDP cable seating."
+cannot print on 11x17 paper on new xerox prtqx4602,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+our printer rn33 at plant_223 doesn't work,Hardware,Cleared paper path obstruction in Tray 2 feed assembly and power cycled printer spooler.
+i am not able to connect to my regular printer or any printer. ts02 on HostName_769,Hardware,Cleared paper path obstruction in Tray 2 feed assembly and power cycled printer spooler.
+bad monitor lbdw7402365,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+the printer is defaulting to the usa printer for delivery notes. need to take the default out so it defaults to,Hardware,Cleared paper path obstruction in Tray 2 feed assembly and power cycled printer spooler.
+unable to boot laptop,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+replace monitor in cell 3 with one that tiyhum kuyiomar sent.,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+need mouse replacement,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+unable to print erp jobs from prtqv7282 after routing it from prtqv0001,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+unable to re print inwarehouse_tool,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+"the pc projector in einstein conf room is not working, it is on but getting no video on the screen.",Hardware,"Updated OEM graphics driver, set display refresh rate to 60Hz, and verified eDP cable seating."
+"laptop is over heating, left side usb and audio output plug also not working, system is slow",Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+vip2: printer driver update,Hardware,Cleared paper path obstruction in Tray 2 feed assembly and power cycled printer spooler.
+drucker em26 druckt mit bis zu 2 std. verzÃ¶gerung (printer can not be pinged. see attachment),Hardware,Cleared paper path obstruction in Tray 2 feed assembly and power cycled printer spooler.
+no power on the laptop,Hardware,Tested AC adapter output voltage and dispatched replacement OEM battery under warranty.
+laptop model latitude 7350 speakers are not working,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+unable to print from the default printer,Hardware,Cleared paper path obstruction in Tray 2 feed assembly and power cycled printer spooler.
+dock station- telephony_software ip phone,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+printer co16 is not printing.,Hardware,Cleared paper path obstruction in Tray 2 feed assembly and power cycled printer spooler.
+"cannot get prtqx7318 to print on pc rqxw8517736, drivers won't load.",Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+please add office printer in my new laptop,Hardware,Cleared paper path obstruction in Tray 2 feed assembly and power cycled printer spooler.
+power outage:usa- (company) - divestiture site is hard down since at 7:40 am et on 08/28/16.,Hardware,Tested AC adapter output voltage and dispatched replacement OEM battery under warranty.
+windows disk space utilization alert :: HostName_19,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+HostName_1045:windows disk space utilization alert - on e: free space less than 15% and under 5gb free.,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+company screen saver was changed to company screen saver,Hardware,"Updated OEM graphics driver, set display refresh rate to 60Hz, and verified eDP cable seating."
+vmax disk failed on df-8b-c,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+printer configuration.,Hardware,Cleared paper path obstruction in Tray 2 feed assembly and power cycled printer spooler.
+vip 2 : battery seems to be dead : latitude e7250,Hardware,Tested AC adapter output voltage and dispatched replacement OEM battery under warranty.
+"unable to create delivery:mm#2110924 can print d/n, but can't post. detail information see attachment.",Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+"attached mail is saved on desktop as template with a text and signature. but when sent, nothing is to be seen.",Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+monitor orientation error,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+need a wireless mouse for my laptop,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+can't print drawing,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+HostName_1007: volume consumed on c: disk is more than 85%.,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+monitor on x-ray instrument pc will not stay turned on.,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+slight change to desktop,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+battery at warning status,Hardware,Tested AC adapter output voltage and dispatched replacement OEM battery under warranty.
+delete print jobs on prtqc4604,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+blue screen on start up,Hardware,"Updated OEM graphics driver, set display refresh rate to 60Hz, and verified eDP cable seating."
+unable to print purchase orders from erp,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+windows disk space utilization alert for :: HostName_106,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+unable to display the expense report,Hardware,"Updated OEM graphics driver, set display refresh rate to 60Hz, and verified eDP cable seating."
+power surge on hub port prompts,Hardware,Tested AC adapter output voltage and dispatched replacement OEM battery under warranty.
+unable to print company label,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+sound card issue in dell latitude m4800 laptop,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+unable to print from the printer qc0567,Hardware,Cleared paper path obstruction in Tray 2 feed assembly and power cycled printer spooler.
+unable to connect wireless on the laptop,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+monitor defekt ewew8323542 pvd1 bur am orde,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+"high priority-laptop monitor gone bad, unable to see screen, its completely beshryu",Hardware,"Updated OEM graphics driver, set display refresh rate to 60Hz, and verified eDP cable seating."
+power outage :south_amerirtca :site is hard down since at 8:19 am et on 09/18.,Hardware,Tested AC adapter output voltage and dispatched replacement OEM battery under warranty.
+please setup printers dg04 and dg08 on HostName_837 with x64 print drivers,Hardware,Cleared paper path obstruction in Tray 2 feed assembly and power cycled printer spooler.
+mouse issue,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+kindly replace the mouse as it is not working,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+cannot print from windows with new pc i was just given.,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+unable to print from dv28,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+unable to print. driver not found.,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+calls are routing to laptop and not on the telephony_software phone.,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+"pc will not boot. rqxw8516900, beshryu screen no post. has been slow to start for a while.",Hardware,"Updated OEM graphics driver, set display refresh rate to 60Hz, and verified eDP cable seating."
+monitor on wire pc is out.,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+bluetooth headset bekommt keine verbindung mit pc - assign to qdxyifhj zbwtunpy germany,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+sound system of laptop,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+plant_269 xerox workcentre 5335 - rr18 printer,Hardware,Cleared paper path obstruction in Tray 2 feed assembly and power cycled printer spooler.
+id04 printer,Hardware,Cleared paper path obstruction in Tray 2 feed assembly and power cycled printer spooler.
+unable to print from wy33 printer,Hardware,Cleared paper path obstruction in Tray 2 feed assembly and power cycled printer spooler.
+"blade chassis HostName_1170 (ip 79.40.48.896) reporting ""non critical"" hardware issues.",Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+desktop item missing when save attachment .,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+expense report - receipt entry screen keeps locking up,Hardware,"Updated OEM graphics driver, set display refresh rate to 60Hz, and verified eDP cable seating."
+usa backup exec server rgtsm005 has a filed raid hdd physical disk 0:0:2,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+need replacement monitor for coatncqulao qauighdpchine.,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+"solid works issue: when trying to give print , solid work crashes.",Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+laptop bettery issue,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+outlook on laptop won't startup anymore. errormessage,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+unable to view desktop items or folders,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+unable to communicate to savin c2525 printer,Hardware,Cleared paper path obstruction in Tray 2 feed assembly and power cycled printer spooler.
+repeat print in tips printer,Hardware,Cleared paper path obstruction in Tray 2 feed assembly and power cycled printer spooler.
+telefon-display,Hardware,"Updated OEM graphics driver, set display refresh rate to 60Hz, and verified eDP cable seating."
+"global erp crm: any party change in complaint 7611184394 causes a blank screen upon saving, and the change is not saved",Hardware,"Updated OEM graphics driver, set display refresh rate to 60Hz, and verified eDP cable seating."
+eilt !!! monitor defekt,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+virus has been found in my laptop,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+"HostName_108: disk free on c: is now 15%, which is below the warning threshold (15%) out of total size 80.0 gb",Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+HostName_1132:oracle finance_app financial management - web tier (epmsystem2) - service monitor(down),Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+unable to print from printer // install driver,Hardware,Cleared paper path obstruction in Tray 2 feed assembly and power cycled printer spooler.
+visio printer and wireless mouse,Hardware,Cleared paper path obstruction in Tray 2 feed assembly and power cycled printer spooler.
+unable to connect to ca07 printer,Hardware,Cleared paper path obstruction in Tray 2 feed assembly and power cycled printer spooler.
+global it-germany-erp-print of csi in vl02n does not works!,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+once external monitor is not working and the other is flickering.,Hardware,"Updated OEM graphics driver, set display refresh rate to 60Hz, and verified eDP cable seating."
+"hello, i'm having an issue with my outlook view. can you call me and let me share my screen?",Hardware,"Updated OEM graphics driver, set display refresh rate to 60Hz, and verified eDP cable seating."
+"the oracle listener monitor is reporting a : warning status on, HostName_136. please investigate",Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+printer not working.,Hardware,Cleared paper path obstruction in Tray 2 feed assembly and power cycled printer spooler.
+"laptop is very slow, any dialog bog i open is choppy & flickers.... delayed",Hardware,"Updated OEM graphics driver, set display refresh rate to 60Hz, and verified eDP cable seating."
+cannot release order / does not print,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+unable to scan from the hp all in one printer,Hardware,Cleared paper path obstruction in Tray 2 feed assembly and power cycled printer spooler.
+"power outage : germany, mx: site is hard down since 10/30/2016 10:09 am et",Hardware,Tested AC adapter output voltage and dispatched replacement OEM battery under warranty.
+hi we have a computer on the shop floor that will not boot up. the power button has an orange flashing light. the only t,Hardware,Tested AC adapter output voltage and dispatched replacement OEM battery under warranty.
+battery not charging when the power adapter is connected.,Hardware,Tested AC adapter output voltage and dispatched replacement OEM battery under warranty.
+latitude e5440 battery issue,Hardware,Tested AC adapter output voltage and dispatched replacement OEM battery under warranty.
+vip 2 : printer not working,Hardware,Cleared paper path obstruction in Tray 2 feed assembly and power cycled printer spooler.
+setup laptop fÃ¼r sandstrahlgerÃ¤t und roboworker qidgvtwa qvbutayx,Hardware,Ran pre-boot hardware diagnostics (ePSA) and scheduled hardware technician depot replacement.
+ts04562 printer isn't printing,Hardware,Cleared paper path obstruction in Tray 2 feed assembly and power cycled printer spooler.
+nmpworvu upgtrvnj // monitor display issue,Hardware,"Updated OEM graphics driver, set display refresh rate to 60Hz, and verified eDP cable seating."
+power outage : vogelfontein sa site hard down since 04:53 am et on 09/28.,Hardware,Tested AC adapter output voltage and dispatched replacement OEM battery under warranty.
+"2 in 1 has cracked screen, but turned off touch screen. so no longer jumps curser around.",Hardware,"Updated OEM graphics driver, set display refresh rate to 60Hz, and verified eDP cable seating."
+wy123 printer,Hardware,Cleared paper path obstruction in Tray 2 feed assembly and power cycled printer spooler.
+"outlook is frozen, unable to open",Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+install kis ewew8323506 guvgytniak,Software,Deployed approved software package silently via Microsoft Intune / Software Center.
+outlook not starting,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+outlook is not opening,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+skype meeting issues,Software,Cleared application %appdata% cache folder and updated to the latest corporate desktop release.
+one team update,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+skype problem,Software,Cleared application %appdata% cache folder and updated to the latest corporate desktop release.
+it - speker for skype conferences,Software,Cleared application %appdata% cache folder and updated to the latest corporate desktop release.
+unable to download a software,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+help to install erp in computer lpawhdt8515494,Software,Deployed approved software package silently via Microsoft Intune / Software Center.
+bls (beschichtungsleitstand) germany workflow error - pvd,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+msd - office 2013 outlook æ‰“ä¸å¼€ï¼Œæ˜¾ç¤ºæ— æ³•åˆ›å»ºæ–°çš„å †æ ˆé˜²æŠ¤é¡µé¢,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+adding shared mailbox to outlook.,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+urgent // price update error,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+unable to load outlook as ost file got corrupted,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+company.collaboration_platform.com : application status is down from 8:47 am et 09/20.,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+pos data update - september 2016,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+ms crm dymanics : giving error message while loading outlook,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+"when employees try to log into mii, get the following error. user authentication failed",Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+ms crm configuration in outlook,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+probleme mit skype difozlav dgbfptos niptbwdq csenjruz,Software,Cleared application %appdata% cache folder and updated to the latest corporate desktop release.
+user is unable to open presentation from outlook client.,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+ref#prb1151148 - cannot connect to dynamic excel from msd crm,Software,"Started Excel in Safe Mode, disabled conflicting COM add-ins, and performed Office Quick Repair."
+delivery notes - unable to inwarehouse_tool four deliveries. error indicates a block. no block on orders,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+ticket update query on ticket inc1541161 : urgqkinl zpcokgbj,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+tess application doesn't run,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+outlook doesn't start-up on my tablet dell latitude 7350,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+"hi, when i try to submit a discount form i get the below error. please advise. cid:image001.jpg@01d1f3d7.bdb9e590 vkzwaf",Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+outlook æ‰“å¼€å¯åŠ¨æç¤ºé”™è¯¯ã€‚,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+i installed the analysis for microsoft excel in erp business intelligence and i am getting an error message,Software,"Started Excel in Safe Mode, disabled conflicting COM add-ins, and performed Office Quick Repair."
+ticket update on inplant_853640,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+having issues with outlook,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+send e-mail from engineering tool doesn't work anymore,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+engineering tool malfunction,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+ie browser issue,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+ticket update inplant_862430,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+engineering tool system,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+ticket update on inplant_861712,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+outlook setting is changed,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+office 365 activation on corporate phone,Software,"Started Excel in Safe Mode, disabled conflicting COM add-ins, and performed Office Quick Repair."
+"customer name ""hronovsky"" does not listed in engineering tool. erp id - 8561028063.",Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+ticket update on inplant_866808,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+"can you please check â€“ marftgytin hÃ¶pfner (userid: hoepftyhum, # 59146) gets the crm error message when trying to open the ""fore",Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+msd - office 2013 specifically outlook,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+"erp query ""zload"" for production scheduling is generating abap error message",Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+i am unable to log into skype. please advise. cid:image001.png@01d2287a.e58a4150,Software,Cleared application %appdata% cache folder and updated to the latest corporate desktop release.
+windows acccount lockout,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+ticket update on inplant_869308,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+ticket update inplant_852304,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+outlook repeatedly asking for passwords,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+install collaboration_platform,Software,Deployed approved software package silently via Microsoft Intune / Software Center.
+install win7 ewew8323504 vzqomdgt jwoqbuml,Software,Deployed approved software package silently via Microsoft Intune / Software Center.
+engineering_tool and distributor_tool error.,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+install zebra we_wu101 pfjwinbg ljtzbdqg,Software,Deployed approved software package silently via Microsoft Intune / Software Center.
+report /dscsag/dms_kpro_contv_clean1 is resulting in abap runtime error in SID_1,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+install EU_tool laeusvjo fvaihgpx,Software,Deployed approved software package silently via Microsoft Intune / Software Center.
+urgent help required- crm mobile app,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+"i can't get logged into outlook. the problem started thursday, october 6 around 430 pm. reichlhdyl",Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+ticket update on inplant_862569,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+"please update change for user ""giuliasana byhdderni"" from ""company.com to company.com""",Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+ticket update on inplant_862933,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+unable to sync mails on iphone 6s,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+outlook issue,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+frequently getting error in outlook application.,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+bex patch installation,Software,Deployed approved software package silently via Microsoft Intune / Software Center.
+analysis for office (aao) tool,Software,"Started Excel in Safe Mode, disabled conflicting COM add-ins, and performed Office Quick Repair."
+collaboration_platform for business continues to sync all the time,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+engineering tool not work correctly and affect multiple user for pre process area,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+quoting engine: error,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+unable to sync some files in collaboration_platform,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+titcket update on inplant_874008,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+excel database problem to run an automation,Software,"Started Excel in Safe Mode, disabled conflicting COM add-ins, and performed Office Quick Repair."
+adding shared mailbox to outlook,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+outlook 365,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+my outlook doesnÂ´t work.,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+ticket update on inplant_854272,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+"skype will not let me sign in. says ""the address you typed is not valid""",Software,Cleared application %appdata% cache folder and updated to the latest corporate desktop release.
+outlook query,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+ticket update on inplant_857988,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+excel is blank when open excel file,Software,"Started Excel in Safe Mode, disabled conflicting COM add-ins, and performed Office Quick Repair."
+ms office /outlook issue,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+ticket update for ticket_no0437735,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+outlook issue slow,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+unable to loginto skype,Software,Cleared application %appdata% cache folder and updated to the latest corporate desktop release.
+issue with outlook profile and skype for business ugyothfz ugrmkdhx ambals,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+install EU_tool und bls rechner olympus xwirzvda okhyipgr,Software,Deployed approved software package silently via Microsoft Intune / Software Center.
+user got crm and outlook configured yesterday outlook version earlier was old now after the new version has been install,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+skype meeting,Software,Cleared application %appdata% cache folder and updated to the latest corporate desktop release.
+unable to update passwords for all accounts,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+erp SID_34 kis error,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+lorw8327797sf(usa robot):outlook did not complete on time had to be kirtyled alert in reporting_tool since 08/22 12:59 pm et,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+lhqsm518: hrsync sync failed! no sync detected in the last 24 hours...please investigate,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+csqe - automatic knowledge base sync,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+windows accout lockout,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+engineering tool install request,Software,Deployed approved software package silently via Microsoft Intune / Software Center.
+probleme mit outlook axesnghb cyzuomxa,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+crm/outlook,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+"the e-time system is not working. the plant controllers are receiving an error message, whenever we try to run a rpt.",Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+email license,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+ticket update on inplant_870573,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+collaboration_platform on phone does not sync,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+issues with pdf viewer on iphone for davidthd,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+configure calendar on phone sync with outlook,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+win installation image for russia office,Software,"Started Excel in Safe Mode, disabled conflicting COM add-ins, and performed Office Quick Repair."
+kindly install software paint shop and winzip,Software,Deployed approved software package silently via Microsoft Intune / Software Center.
+outlook not responding,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+error drucker,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+outlook is prompting for passwords again & again,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+ticket update for ticket_no0438583,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+engineering tool not opening,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+install acrobat standard,Software,Deployed approved software package silently via Microsoft Intune / Software Center.
+ms office upgrade ; from 2013 to 2016,Software,"Started Excel in Safe Mode, disabled conflicting COM add-ins, and performed Office Quick Repair."
+insert option not wrking in excel,Software,"Started Excel in Safe Mode, disabled conflicting COM add-ins, and performed Office Quick Repair."
+ticket update on ticket_no0442388,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+vip 2: outlook freezing.,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+probleme mit outlook dtlmbcrx mwuateyx,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+skype is not opening.,Software,Cleared application %appdata% cache folder and updated to the latest corporate desktop release.
+license query,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+issue is not resolved. error : @80@validity of certificate from list with pse ssl,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+msd crm error opening outlook,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+unable to open outlook client,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+erp csd cockpit application: condition update not possible,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+ms crm dynamics for outlook :,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+ticket update on inplant_855076,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+ticket update on inplant_864352,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+this message was sent to the company quarantine database. please contact company it help desk for more information,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+crm app on ios10,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+ticket update regarding ticket_no1543461 from tqvpohwj tbkywpqz,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+when i create a recurring appointment in mds i get an error record is unavailable,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+unable to log in to windows,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+vitalyst transfer: crm calendar not showing on outlook,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+office 2013 for qohfjpna exphkims shows activation required,Software,"Started Excel in Safe Mode, disabled conflicting COM add-ins, and performed Office Quick Repair."
+hr_tool site will not recognize email address after windows 2016 upgrade.,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+outlook is not working . i've updated the sp 2 but .. nothing,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+ticket update on inplant_868930,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+ticket update on inplant_866566,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+skype audio issue,Software,Cleared application %appdata% cache folder and updated to the latest corporate desktop release.
+outlook issue : crashing and not responding,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+audio issue : windows audio issue ; 7350,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+eror message on refreshing the bex analysis. error atached.,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+cannot syncronize outlook appointments to crm,Software,Deleted corrupted Exchange cached mode .OST file and allowed Outlook to resynchronize mailbox.
+requesting un-install and re-install of excel 2013,Software,"Started Excel in Safe Mode, disabled conflicting COM add-ins, and performed Office Quick Repair."
+inc1553541 - ticket update,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+ticket update inplant_862604,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+unable to load engineering tool,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+bex cannot convert to excel sheet,Software,"Started Excel in Safe Mode, disabled conflicting COM add-ins, and performed Office Quick Repair."
+new windows 7 pc lpgw8517786 cannot connect to the rfid reader via rs232 port,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
+failed skype mtg.,Software,Cleared application %appdata% cache folder and updated to the latest corporate desktop release.
+personal certificate error : skype issue,Software,Cleared application %appdata% cache folder and updated to the latest corporate desktop release.
+stack guard error,Software,"Installed latest software patch, rolled back conflicting update, and verified application logs."
